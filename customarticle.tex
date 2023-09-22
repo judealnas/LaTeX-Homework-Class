@@ -1,0 +1,28 @@
+\documentclass{customarticle}
+\usepackage[capitalise]{cleveref}
+
+\Crefname{problem}{Problem}{Problems}
+\Crefname{subproblem}{Question}{Questions}
+
+\begin{document}
+
+\tableofcontents
+
+\problem{First Problem}\label{prob:first}
+This is the first problem.
+
+\subproblem{Subproblem 1}\label{subprob:1}
+This is a subproblem of the first problem.
+
+\problem{Second Problem}\label{prob:second}
+This is the second problem.
+
+\subproblem{Subproblem 1}\label{subprob:2}
+This is a subproblem of the second problem.
+
+\subproblem{Subproblem 2}\label{subprob:3}
+This is another subproblem of the second problem.
+
+In \cref{prob:first}, we discuss the first problem, and in \cref{prob:second}, we address the second problem. Within the second problem, \cref{subprob:2} deals with one aspect, and \cref{subprob:3} deals with another aspect.
+
+\end{document}
