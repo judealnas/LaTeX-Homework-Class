@@ -1,6 +1,10 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{customarticle}[Custom Article Class]
 
+% Declare options accepted by the article class
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax
+
 % Load the standard article class as a base
 \LoadClass{article}
 
