@@ -17,16 +17,26 @@
 \renewcommand{\theproblem}{\arabic{problem}}
 \renewcommand{\thesubproblem}{\theproblem.\roman{subproblem}}
 
-% Define the \problem and \subproblem sectioning commands
-\newcommand{\problem}[1]{%
+\newcommand{\problem}[1]{
   \refstepcounter{problem}%
-  \section*{Problem \theproblem\quad#1}%
-  \addcontentsline{toc}{section}{\theproblem\quad#1}%
+  \ifx&#1& % Check if #1 is empty
+    \section*{Problem \theproblem}%
+    \addcontentsline{toc}{section}{Problem \theproblem}%
+    \else
+    \section*{Problem \theproblem:\ #1}%
+    \addcontentsline{toc}{section}{Problem \theproblem:\ #1}%
+  \fi
 }
-\newcommand{\subproblem}[1]{%
+
+\newcommand{\subproblem}[1]{
   \refstepcounter{subproblem}%
-  \subsection*{Question \thesubproblem\quad#1}%
-  \addcontentsline{toc}{subsection}{\thesubproblem\quad#1}%
+  \ifx&#1& % Check if #1 is empty
+    \subsection*{Question \thesubproblem}%
+    \addcontentsline{toc}{subsection}{Question \thesubproblem}%
+    \else
+    \subsection*{Question \thesubproblem:\ #1}%
+    \addcontentsline{toc}{subsection}{Question \thesubproblem:\ #1}%
+  \fi
 }
 
 \endinput
