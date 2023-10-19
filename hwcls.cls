@@ -39,4 +39,9 @@
   \fi
 }
 
+\RequirePackage{hyperref}
+\RequirePackage{cleveref}
+\crefname{problem}{Problem}{Problems}
+\crefname{subproblem}{Question}{Questions}
+
 \endinput
