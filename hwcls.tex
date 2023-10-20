@@ -1,8 +1,7 @@
 \documentclass{hwcls}
-\usepackage{hyperref}
-% \usepackage[capitalise]{cleveref}
-% \Crefname{problem}{Problem}{Problems}
-% \Crefname{subproblem}{Question}{Questions}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise]{cleveref}
 
 \begin{document}
 
@@ -24,5 +23,8 @@ This is a subproblem of the second problem.
 This is another subproblem of the second problem.
 
 In \cref{prob:first}, we discuss the first problem, and in \cref{prob:second}, we address the second problem. Within the second problem, \cref{subprob:2} deals with one aspect, and \cref{subprob:3} deals with another aspect.
-
+\begingroup
+\crefname{problem}{MyProblem}{MyProblems}
+\cref{prob:first,prob:second} are now using a custom label
+\endgroup
 \end{document}

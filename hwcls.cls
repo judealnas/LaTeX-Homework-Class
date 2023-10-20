@@ -39,9 +39,23 @@
   \fi
 }
 
-\RequirePackage{hyperref}
-\RequirePackage{cleveref}
-\crefname{problem}{Problem}{Problems}
-\crefname{subproblem}{Question}{Questions}
+\AtBeginDocument{%
+  % Check if cleveref package is already loaded
+  \@ifpackageloaded{cleveref}{%
+    % Check if \Crefname is defined for the problem counter, and define it if not
+    \ifcsname c@problem\endcsname
+      \ifx\cref@problem@name\@undefined
+        \Crefname{problem}{Problem}{Problems}
+      \fi
+    \fi
+
+    % Check if \Crefname is defined for the subproblem counter, and define it if not
+    \ifcsname c@subproblem\endcsname
+      \ifx\cref@subproblem@name\@undefined
+        \Crefname{subproblem}{Question}{Questions}
+      \fi
+    \fi
+  }{}% End of \@ifpackageloaded
+}
 
 \endinput
